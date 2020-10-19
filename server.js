@@ -27,7 +27,7 @@ const roomsArray = [
 ];
 
 const rooms = new Map(roomsArray);
-const port = 8888;
+const port = process.env.PORT || 8888;
 
 app.get("/rooms/:name", (req, res) => {
   const { name: roomID } = req.params;
