@@ -38,10 +38,10 @@ app.get("/rooms/:name", (req, res) => {
   res.json(obj);
 });
 
-// app.get("/rooms", (req, res) => {
-//   const names = [...rooms.keys()];
-//   res.json(names);
-// });
+app.get("/rooms", (req, res) => {
+  const names = [...rooms.keys()];
+  res.json(names);
+});
 
 io.on("connection", (socket) => {
   socket.on("ROOM:JOIN", ({ roomID, userName }) => {
