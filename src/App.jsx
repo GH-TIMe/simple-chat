@@ -2,9 +2,16 @@ import React, { useReducer, useEffect } from "react";
 import { JoinBlock, Chat } from "./components";
 import socket from "./socket";
 import axios from "axios";
+import { API_HOST } from "./server";
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "SET_ROOM": {
+      return {
+        ...state,
+        roomID: action.payload,
+      };
+    }
     case "JOINED": {
       return {
         ...state,
@@ -52,7 +59,7 @@ const App = () => {
       payload: obj,
     });
     socket.emit("ROOM:JOIN", obj);
-    const { data } = await axios.get(`/rooms/${obj.roomID}`);
+    const { data } = await axios.get(`${API_HOST}/rooms/${obj.roomID}`);
     dispatch({
       type: "SET_DATA",
       payload: data,
@@ -82,15 +89,22 @@ const App = () => {
     });
   };
 
+  const setRoom = (roomID) => {
+    dispatch({
+      type: "SET_ROOM",
+      payload: roomID,
+    });
+  };
+
   useEffect(() => {
     socket.on("ROOM:SET_USERS", setUsers);
     socket.on("ROOM:SET_MESSAGES", setMessage);
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="wrapper">
       {state.joined ? (
-        <Chat {...state} handleSendMessage={sendMessage} />
+        <Chat {...state} handleSendMessage={sendMessage} setRoom={setRoom} />
       ) : (
         <JoinBlock onLogin={onLogin} />
       )}

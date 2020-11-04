@@ -5,29 +5,64 @@
 .chat {
   padding: 10px;
 
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &__name {
+    font-size: 16px;
+    padding-left: 5px;
+  }
+
   &__content {
     display: flex;
-    height: calc(100vh - 20px);
+    height: calc(var(--vh, 1vh) * 100 - 20px);
     border-radius: 5px;
     border: 1px solid #e5e8e8;
+
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__left-side {
+    display: block;
+    position: absolute;
+    width: 250px;
+    height: calc(var(--vh, 1vh) * 100 - 20px);
+    border-right: none;
+    background-color: #f2f4f4;
+    z-index: 1;
+
+    overflow-x: hidden;
+
+    @media (max-width: 800px) {
+      width: 0;
+    }
+
+    &.active {
+      width: 100%;
+      left: 0;
+      top: 0;
+    }
+
+    transition: width 0.15s linear;
+
+    &-container {
+      padding: 10px;
+    }
   }
 
   &__users {
-    width: 200px;
+    width: 100%;
     list-style: none;
     padding: 0;
   }
 
-  &__left-side {
-    height: 100%;
-    border-right: 1px solid #e5e8e8;
-    padding: 10px;
-    background-color: #f2f4f4;
-  }
-
   &__user {
     font-size: 18px;
-    font-size: 700;
+
+    white-space: nowrap;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -43,6 +78,11 @@
 
   &__online {
     padding-left: 5px;
+    white-space: nowrap;
+
+    font-size: 16px;
+
+    text-transform: uppercase;
   }
 
   &__right-side {
@@ -53,14 +93,23 @@
     width: 100%;
     position: relative;
     margin: 10px;
+    margin-left: 260px;
+
+    transition: margin-left 0.15s linear;
+
+    @media (max-width: 800px) {
+      margin-left: 10px;
+    }
   }
 
   &__messages {
+    height: 100%;
     list-style: none;
     margin-bottom: 10px;
     padding: 0;
 
     overflow-y: scroll;
+    overflow-x: hidden;
 
     &::-webkit-scrollbar {
       width: 10px;
@@ -87,6 +136,8 @@
     background-color: #007bff;
     border-radius: 5px;
     border-bottom-left-radius: 0;
+
+    margin-right: 10px;
   }
 
   &__text {
@@ -94,6 +145,9 @@
     color: #fff;
     margin: 0;
     line-height: 22px;
+
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
 
     &::-moz-selection {
       background-color: #fff;
@@ -115,5 +169,138 @@
 
     font-size: 13px;
     opacity: 0.5;
+  }
+
+  &__input-text {
+    z-index: 0;
+  }
+}
+
+.switcher {
+  clear: both;
+
+  &__rooms {
+    position: absolute;
+    left: 0;
+
+    margin: 0;
+    margin-top: 5px;
+    padding: 0;
+
+    list-style: none;
+    background-color: #fff;
+    border: 1px solid #e5e8e8;
+    border-radius: 5px;
+
+    overflow: hidden;
+
+    &.disable {
+      display: none;
+    }
+  }
+
+  &__room {
+    margin: 0;
+    padding: 5px 9px;
+    cursor: pointer;
+    border-bottom: 1px solid #e5e8e8;
+
+    transition: all 0.15s linear;
+
+    &:hover {
+      color: #fff;
+      background-color: #007bff;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &.active {
+      background-color: rgba($color: #000, $alpha: 0.1);
+      color: #007bff;
+
+      cursor: auto;
+    }
+  }
+
+  &__active-room {
+    margin: 0 5px;
+  }
+
+  &__icon {
+    display: inline-block;
+    transform: rotate(0);
+
+    transition: transform 0.15s linear;
+
+    &.active {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__content {
+    display: inline-block;
+    position: relative;
+
+    font-size: 16px;
+    font-weight: 400;
+
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+  }
+
+  &__title {
+    font-size: 16px;
+    padding-left: 5px;
+
+    text-transform: uppercase;
+
+    white-space: nowrap;
+  }
+}
+
+.sidebar {
+  position: relative;
+
+  &__open,
+  &__close {
+    svg {
+      display: none;
+      cursor: pointer;
+
+      path {
+        transition: fill 0.15s linear;
+      }
+
+      &:hover path {
+        fill: #007bff;
+      }
+
+      @media (max-width: 800px) {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__open {
+    border-bottom: 1px solid #e5e8e8;
+    padding: 0 0 5px;
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    svg {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &__close {
+    svg {
+      float: right;
+    }
   }
 }
