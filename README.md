@@ -2,18 +2,25 @@
 
 Анонимный чат с комнатами. Для того, чтобы начать общение нужно выбрать комнату и ввести имя пользователя.
 
-В данной ветке находится frontend часть проекта. Backend версия находится в ветке [simple-chat/backend](https://github.com/GH-TIMe/simple-chat/tree/backend)
+В данной ветке находится frontend версия проекта. Backend версия находится в ветке [simple-chat/backend](https://github.com/GH-TIMe/simple-chat/tree/backend)
 
 Демо приложения доступно по [ссылке](https://gh-time.github.io/simple-chat/).
 
-## :memo: Полный стек:
- - React
- - socket.io-client (клиентская версия библиотеки socket.io позволяет обмениваться данными с сервером в реальном времени)
- - axios (библиотека для отправки AJAX-запросов)
+Серверная часть проекта загружена на хостинг Heroku.
+
+Доступ к серверной части осуществляется по ссылке: https://chat-backend-socket-vers.herokuapp.com
+
+## :memo: Полный стек проекта:
+ - ReactJS
+ - NodeJS / Express
+ - Socket.io (frontend + backend)
 
 ## :rocket: Запуск
-В корневой папке проекта, вы можете запустить команду:
+В корневой папке проекта, вы можете запустить команды:
 
-`npm start`
+```
+npm init
+npm start
+```
 
 После чего откройте [http://localhost:3000](http://localhost:3000), чтобы просмотреть его в браузере.
