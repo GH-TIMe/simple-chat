@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a2124591ca2437ec12c4e1a90a3c13e2",
+    "revision": "8fc7fda125fdd3a7d5922bceb3a534ce",
     "url": "/simple-chat/index.html"
   },
   {
-    "revision": "bc6f8b11ca3a04ee5d59",
-    "url": "/simple-chat/static/css/main.bb0a93fa.chunk.css"
+    "revision": "9df1bf9682ea1f3d3624",
+    "url": "/simple-chat/static/css/main.6a95d6ea.chunk.css"
   },
   {
     "revision": "fbb34cd46059eeac4e5d",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/simple-chat/static/js/2.946b1d45.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bc6f8b11ca3a04ee5d59",
-    "url": "/simple-chat/static/js/main.018dbaa7.chunk.js"
+    "revision": "9df1bf9682ea1f3d3624",
+    "url": "/simple-chat/static/js/main.722a2fe6.chunk.js"
   },
   {
     "revision": "d8ad321354e21979292c",
