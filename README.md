@@ -2,7 +2,7 @@
 
 Анонимный чат с комнатами. Для того, чтобы начать общение нужно выбрать комнату и ввести имя пользователя.
 
-В данной ветке находится frontend часть проекта.
+В данной ветке находится frontend часть проекта. Backend версия находится в ветке [simple-chat/backend](https://github.com/GH-TIMe/simple-chat/tree/backend)
 
 Демо приложения доступно по [ссылке](https://gh-time.github.io/simple-chat/).
 
